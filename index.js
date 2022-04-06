@@ -10,7 +10,8 @@ MongoClient.connect(URL, function(error, MYMongoClient){
     }
     else{
         console.log("connection sucess");
-        InsertData(MYMongoClient);
+        //InsertData(MYMongoClient);
+        DeleteOneItem(MYMongoClient);
     }
 
 });
@@ -27,5 +28,19 @@ function InsertData(MYMongoClient){
             console.log("Data Insert Success");
         }
 
+    });
+}
+
+function DeleteOneItem(MyMongoClinet) {
+    var MyDataBase= MyMongoClinet.db("damo");
+    var MyCollection= MyDataBase.collection('list');
+    var DeleteItem={Roll:"02"}
+    MyCollection.deleteOne(DeleteItem,function (error) {
+        if(error){
+            console.log("Data Delete Fail");
+        }
+        else{
+            console.log("Data Delete Success");
+        }
     });
 }
