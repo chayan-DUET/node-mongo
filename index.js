@@ -27,5 +27,5 @@ function InsertData(MYMongoClient){
             console.log("Data Insert Success");
         }
 
-    })
+    });
 }
